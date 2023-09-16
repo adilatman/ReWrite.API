@@ -1,0 +1,54 @@
+﻿@using ReWrite.UI.Models;
+@model IQueryable<ProductWithNamesDTO>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+
+<p class="text-success">
+    @TempData["AddProductMessage"]
+</p>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table table-striped table table-hover">
+    <thead>
+        <tr>
+            <th>Ürün Adı</th>
+            <th>Üretici</th>
+            <th>Kategori</th>
+            <th>Stok Miktarı</th>
+            <th>Birim Başına Miktar</th>
+            <th>Birim Fiyatı</th>
+            <th>Siparişte</th>
+            <th>Tekrar Sipariş Seviyesi</th>
+            <th>Devam</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.CompanyName</td>
+                <td>@item.CategoryName</td>
+                <td>@item.UnitsInStock</td>
+                <td>@item.QuantityPerUnit</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.UnitsOnOrder</td>
+                <td>@item.ReorderLevel</td>
+                <td>@item.Discontinued</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

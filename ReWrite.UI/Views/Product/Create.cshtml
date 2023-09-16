@@ -1,0 +1,16 @@
+﻿@model ProductDTO
+
+<h2>Create New Product</h2>
+<br />
+<form asp-action="Create" method="post">
+    Ürün Adı: <input type="text" asp-for="ProductName" value="" /><br />
+    Tedarikçi ID: <input type="text" asp-for="SupplierID" value="" /><br />
+    Kategori ID: <input type="text" asp-for="CategoryID" value="" /><br />
+    Stok Miktarı: <input type="text" asp-for="UnitsInStock" value="" /><br />
+    Birim Başına Miktar: <input type="text" asp-for="QuantityPerUnit" value="" /><br />
+    Birim Fiyatı: <input type="text" asp-for="UnitPrice" value="" /><br />
+    Siparişte: <input type="text" asp-for="UnitsOnOrder" value="" /><br />
+    Tekrar Sipariş Seviyesi: <input type="text" asp-for="ReorderLevel" value="" /><br />
+    Devam: <input type="checkbox" asp-for="Discontinued" value="" /><br />
+    <input type="submit" value="Add Product" class="btn btn-success col-md-6" />
+</form>
