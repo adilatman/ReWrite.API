@@ -1,16 +1,36 @@
 ﻿@model ProductDTO
 
+@if (Convert.ToInt32(TempData["statusCode"]) != 200)
+{
+    <style>
+        label {
+            color: red; /* Varsayılan olarak kırmızı renk */
+        }
+    </style>
+}
+else
+{
+<style>
+    label {
+        color: green;
+    }
+</style>
+}
+
 <h2>Create New Product</h2>
 <br />
 <form asp-action="Create" method="post">
-    Ürün Adı: <input type="text" asp-for="ProductName" value="" /><br />
-    Tedarikçi ID: <input type="text" asp-for="SupplierID" value="" /><br />
-    Kategori ID: <input type="text" asp-for="CategoryID" value="" /><br />
-    Stok Miktarı: <input type="text" asp-for="UnitsInStock" value="" /><br />
-    Birim Başına Miktar: <input type="text" asp-for="QuantityPerUnit" value="" /><br />
-    Birim Fiyatı: <input type="text" asp-for="UnitPrice" value="" /><br />
-    Siparişte: <input type="text" asp-for="UnitsOnOrder" value="" /><br />
-    Tekrar Sipariş Seviyesi: <input type="text" asp-for="ReorderLevel" value="" /><br />
-    Devam: <input type="checkbox" asp-for="Discontinued" value="" /><br />
+    <label>Ürün Adı: </label><input type="text" asp-for="ProductName" value="" /><br />
+    <label>Tedarikçi ID: </label><input type="text" asp-for="SupplierID" value="" /><br />
+    <label>Kategori ID: </label><input type="text" asp-for="CategoryID" value="" /><br />
+    <label>Stok Miktarı: </label><input type="text" asp-for="UnitsInStock" value="" /><br />
+    <label>Birim Başına Miktar: </label><input type="text" asp-for="QuantityPerUnit" value="" /><br />
+    <label>Birim Fiyatı: </label><input type="text" asp-for="UnitPrice" value="" /><br />
+    <label>Siparişte: </label><input type="text" asp-for="UnitsOnOrder" value="" /><br />
+    <label>Tekrar Sipariş Seviyesi: </label><input type="text" asp-for="ReorderLevel" value="" /><br />
+    <label>Devam: </label><input type="checkbox" asp-for="Discontinued" value="" /><br />
     <input type="submit" value="Add Product" class="btn btn-success col-md-6" />
 </form>
+
+
+

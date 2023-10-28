@@ -27,6 +27,7 @@ namespace ReWrite.UI.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+            TempData["statusCode"] = 200;
             return View(new ProductDTO());
         }
         [HttpPost]
